@@ -1,0 +1,1 @@
+URI : 442042524822.dkr.ecr.eu-north-1.amazonaws.com/simple-app
