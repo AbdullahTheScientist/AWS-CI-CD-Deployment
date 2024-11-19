@@ -44,10 +44,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 140023ea1430654ac358cf5dc4bed81c72e6334f
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
@@ -99,17 +95,4 @@ jobs:
          docker run -d -p 8080:8080 --name=simpleapp -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}'  ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
       - name: Clean previous images and containers
         run: |
-<<<<<<< HEAD
          docker system prune -f
-=======
-         docker system prune -f
-=======
-    - name: Deploy Amazon ECS task definition
-      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-      with:
-        task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ${{ env.ECS_SERVICE }}
-        cluster: ${{ env.ECS_CLUSTER }}
-        wait-for-service-stability: true
->>>>>>> 3bec11354e49ac5fbddb5cdec99550ea030c6ab6
->>>>>>> 140023ea1430654ac358cf5dc4bed81c72e6334f
